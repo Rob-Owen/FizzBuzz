@@ -24,12 +24,13 @@ for (let number=1; number<=maxNumber; number++) {
     if ((number % 13) === 0) {
         if (outputBuffer.length === 0) outputBuffer.push('Fezz');
         else {
-            // get the position where Fezz should go
+            // get the position where 'Fezz' should go (j)
             let j = 0;
             while (j < outputBuffer.length) {
                 if (outputBuffer[j][0] === 'B') break;
                 j++;
             }
+            // splice 'Fezz' in at position j
             outputBuffer.splice(j, 0, 'Fezz');
         }
     }
