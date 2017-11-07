@@ -1,7 +1,6 @@
+// user-defined max number, defaults to 100
 let  maxNumber = process.argv[2];
-if (maxNumber === undefined) {
-    maxNumber = 100;
-}
+if (maxNumber === undefined) maxNumber = 100;
 
 const mapping = {
     3 : 'Fizz',
