@@ -1,18 +1,18 @@
-for (var i=1; i<101; i++) {
+const mapping = {
+    3 : 'Fizz',
+    5 : 'Buzz',
+    7 : "Bang",
+}
 
-    m3 = i % 3;
-    m5 = i % 5;
-
-    if (m3 === 0 && m5 === 0) {
-        console.log("FizzBuzz");
+for (let i=1; i<101; i++) {
+    let o = "";
+    for (let v in mapping) {
+        if ((i % v) === 0) {
+            o += mapping[v];
+        }
     }
-    else if (m3 === 0) {
-        console.log("Fizz");
+    if (o === "") {
+        o = i;
     }
-    else if (m5 === 0) {
-        console.log("Buzz");
-    }
-    else {
-        console.log(i);
-    }
+    console.log(o);
 }
