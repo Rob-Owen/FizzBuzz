@@ -1,10 +1,15 @@
+let  maxNumber = process.argv[2];
+if (maxNumber === undefined) {
+    maxNumber = 100;
+}
+
 const mapping = {
     3 : 'Fizz',
     5 : 'Buzz',
     7 : "Bang",
 }
 
-for (let number=1; number<301; number++) {
+for (let number=1; number<=maxNumber; number++) {
     let outputBuffer = [];
 
     // build fizz/buzz/bong
