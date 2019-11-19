@@ -9,21 +9,23 @@ public class FizzBuzz {
     public static void main(String[] args) {
 
         var rules = List.of(
-                ruleFor(3, s -> s.concat("Fizz")),
-                ruleFor(5, s -> s.concat("Buzz"))
+                ruleFor(3, sb -> sb.append("Fizz")),
+                ruleFor(5, sb -> sb.append("Buzz"))
         );
 
         // Apply rules and print the output to console
         IntStream.rangeClosed(1, MAXIMUM).forEach(n -> {
-            String response = "";
+            StringBuilder response = new StringBuilder();
             for (var rule : rules) {
                 response = rule.apply(n, response);
             }
-            System.out.println(response.isEmpty() ? n : response);
+            System.out.println(response.toString().isEmpty() ? n : response.toString());
         });
     }
 
-    private static BiFunction<Integer, String, String> ruleFor(int multipleOf, Function<String, String> processingRule) {
+    private static BiFunction<Integer, StringBuilder, StringBuilder> ruleFor(
+            int multipleOf,
+            Function<StringBuilder, StringBuilder> processingRule) {
         return (var number, var previous) -> {
             if (number % multipleOf != 0) {
                 return previous;
